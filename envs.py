@@ -6,11 +6,8 @@ import cv2
 # Taken from https://github.com/openai/universe-starter-agent
 def create_atari_env(env_id):
     env = gym.make(env_id)
-    if len(env.observation_space.shape) > 1:
-        #env = Vectorize(env)
-        env = MyAtariRescale42x42(env)
-        env = MyNormalizedEnv(env)
-        #env = Unvectorize(env)
+    env = MyAtariRescale42x42(env)
+    env = MyNormalizedEnv(env)
     return env
 
 
